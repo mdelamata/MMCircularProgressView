@@ -53,8 +53,11 @@
 - (void)drawRect:(CGRect)rect
 {
     [self setTrack];
-    [self setProgress];
-    [self addNeedle];
+    [self setProgressTrack];
+    
+    if (self.displayNeedle) {
+        [self addNeedle];
+    }
 }
 
 //default configurations
@@ -62,24 +65,22 @@
     
     self.backgroundColor = [UIColor clearColor];
     self.trackColor = [UIColor colorWithWhite:1 alpha:0.3];
-//    self.trackColor = [UIColor redColor];
-
     self.progressColor = [UIColor colorWithWhite:1 alpha:0.5];
-//    self.progressColor = [UIColor yellowColor];
-
     self.needleColor = [UIColor redColor];
     self.strokeWidth = 5;
-    self.progress = 0.7;
+    self.displayNeedle = YES; //yes by default
+
     self.duration = 2;
+    
     self.startAngle = 170;
     self.endAngle = 45;
+    
 
+    self.progress = 0.7;
 }
-
 
 -(void)setProgress:(float)progress{
     _progress = progress;
-
     [self repaint];
 }
 
@@ -93,17 +94,10 @@
     [self repaint];
 }
 
--(void)repaint{
-    [self.progressLayer removeFromSuperlayer];
-    [self.trackLayer removeFromSuperlayer];
-    [self.needleImageView removeFromSuperview];
-    
-    [self setNeedsDisplay];
-
-}
 
 #pragma mark - Drawing Methods
 
+//defines and draws the track stroke
 - (void)setTrack
 {
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
@@ -121,7 +115,8 @@
     [self.layer addSublayer:self.trackLayer];
 }
 
-- (void)setProgress
+//defines and draws the progress track stroke
+- (void)setProgressTrack
 {
     
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
@@ -132,18 +127,18 @@
     pathLayer.fillColor = nil;
     pathLayer.lineWidth = self.strokeWidth;
     pathLayer.lineJoin = kCALineJoinBevel;
-    pathLayer.strokeStart   = 0.0;
-    pathLayer.strokeEnd     = 1.0;
+    pathLayer.strokeStart = 0.0;
+    pathLayer.strokeEnd = 1.0;
     
     self.progressLayer = pathLayer;
     [self.layer addSublayer:self.progressLayer];
     
 }
 
-
+//defines and draws the needle stroke
 -(void)addNeedle{
     
-    UIImage *img = [[UIImage imageNamed:@"needle"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *img = [[UIImage imageNamed:@"needle"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]; //with this, the tinting is easy!
     self.needleImageView = [[UIImageView alloc] initWithImage:img];
     
     [self.needleImageView setFrame:CGRectMake(CGRectGetMidX(self.trackLayer.frame)-img.size.width/2,
@@ -152,10 +147,15 @@
                                               img.size.height)];
     
     [self addSubview:self.needleImageView];
+    
+    //sets the anchor point in the bottom side
     self.needleImageView.layer.anchorPoint = CGPointMake(0.5,1);
 
+    //tints the image with the desired color
     [self.needleImageView setTintColor:self.needleColor];
     
+    
+    //rotates it to the progress position
     CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
@@ -163,41 +163,16 @@
 }
 
 
-
--(void)startAnimation{
+//method that clears and request repaint everything
+-(void)repaint{
+    [self.progressLayer removeFromSuperlayer];
+    [self.trackLayer removeFromSuperlayer];
+    [self.needleImageView removeFromSuperview];
     
-    double delayInSeconds = 0.1;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        [self.progressLayer removeAllAnimations];
-        
-        CABasicAnimation *animateStrokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        animateStrokeEnd.duration  = self.duration;
-        animateStrokeEnd.fromValue = @(0.0f);
-        animateStrokeEnd.toValue   = @(1.0f);
-        animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
-        
-        self.needleImageView.layer.anchorPoint = CGPointMake(0.5,1);
-        
-        CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle));
-        CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
-
-        
-        CGAffineTransform initialTransform = CGAffineTransformMakeRotation(progressOvalStartAngle);
-        [self.needleImageView setTransform:initialTransform];
-//        CGAffineTransform finalTransform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(-90+self.progress*180));
-        CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
-
-        [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.needleImageView setTransform:finalTransform];
-        } completion:nil];
-        
-    });
-    
+    [self setNeedsDisplay];
 }
 
+//auxiliar method to create Bezier paths to the desired progress
 -(UIBezierPath*)createBezierPathWithProgress:(CGFloat)progress{
     
     // Drawing code
@@ -214,6 +189,7 @@
                           endAngle:(progressOvalStartAngle + (progress * progressOvalEndAngle))
                          clockwise:YES];
     
+    //this centers the beziers in the rect
     CGAffineTransform ovalTransform = CGAffineTransformMakeTranslation(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect));
     //    ovalTransform = CGAffineTransformScale(ovalTransform, 1, CGRectGetHeight(ovalRect)/ CGRectGetWidth(ovalRect));
     [progressPath applyTransform:ovalTransform];
@@ -222,5 +198,47 @@
 }
 
 
+#pragma mark - Animating Methods
+
+//method to start the animation.
+-(void)startAnimation{
+    
+    double delayInSeconds = 0.1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [self.progressLayer removeAllAnimations];
+        
+        CABasicAnimation *animateStrokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        animateStrokeEnd.duration  = self.duration;
+        animateStrokeEnd.fromValue = @(0.0f);
+        animateStrokeEnd.toValue   = @(1.0f);
+        animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
+        
+        
+        if (self.displayNeedle) {
+            
+            [self.progressLayer removeAllAnimations];
+
+            CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle));
+            CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
+            
+            CABasicAnimation *rotationAnimation;
+            rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+            rotationAnimation.fromValue = [NSNumber numberWithFloat:progressOvalStartAngle];
+            rotationAnimation.toValue = [NSNumber numberWithFloat:progressOvalEndAngle];
+            rotationAnimation.duration = self.duration;
+            rotationAnimation.removedOnCompletion = YES;
+            rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            
+            
+            [self.needleImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        }
+
+
+    });
+    
+}
 
 @end

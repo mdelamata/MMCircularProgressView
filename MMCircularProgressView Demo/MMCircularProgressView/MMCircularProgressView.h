@@ -21,6 +21,7 @@
 @property(nonatomic,assign) CGFloat endAngle;
 
 @property(nonatomic,assign) float progress;
+@property(nonatomic,assign) BOOL displayNeedle;
 
 -(void)startAnimation;
 

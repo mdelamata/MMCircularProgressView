@@ -44,6 +44,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - IBAction methods
+
 - (IBAction)animateButtonPressed:(id)sender {
     [self.circularProgressView startAnimation];
 
