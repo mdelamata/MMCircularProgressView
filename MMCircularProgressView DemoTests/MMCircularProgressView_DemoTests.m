@@ -32,6 +32,6 @@
     
     MMCircularProgressView *circularProgressView = [[MMCircularProgressView alloc] init];
     
-    XCTAssertTrue([circularProgressView isKindOfClass:[MMCircularProgressView class]], @"Introspection Test");
+    XCTAssertTrue([@"hello" isKindOfClass:[MMCircularProgressView class]], @"Introspection Test");
 }
 @end
