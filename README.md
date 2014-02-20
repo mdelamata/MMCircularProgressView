@@ -18,7 +18,7 @@ platform :ios, '7.0'
 pod "MMCircularProgressView", "~> 1.0"
 ```
 #### Old school
-Drag into your project the `/Classes` objects files the files `MMCircularProgressView.h` and `MMCircularProgressView.m`.
+Drag into your project the folder `/MMCircularProgressView`. That's all.
 
 How to use it? 
 ------------
@@ -68,7 +68,7 @@ Here you can see a bunch of parameters that you can change:
 - UIColor `needleColor`: Color of the needle.
 
 #### Other appearance settings.
-- CGFloat strokeWidth: This is the width of the track.
-- CGFloat duration: This is the time for the animation from 0.0 to progress value.
+- CGFloat `strokeWidth`: This is the width of the track.
+- CGFloat `duration`: This is the time for the animation from 0.0 to progress value.
 
 Hope you enjoy it!
