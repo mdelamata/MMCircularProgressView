@@ -1,2 +1,3 @@
  language: objective-c
- script: xctool -workspace "MMCircularProgressView Demo.xcworkspace" -scheme "MMCircularProgressView DemoTests"
+ script: 
+   xctool -workspace MMCircularProgressView\ Demo.xcworkspace -scheme MMCircularProgressView\ DemoTests test
