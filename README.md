@@ -12,15 +12,13 @@ Circular ProgressView for iOS with configuration for starting and end angle.
 
 How to Install it
 ------------
-
 #### Podfile
 ```ruby
 platform :ios, '7.0'
 pod "MMCircularProgressView", "~> 1.0"
 ```
 #### Old school
-Drag into your project the '/Classes' objects files
-
+Drag into your project the `/Classes` objects files the files `MMCircularProgressView.h` and `MMCircularProgressView.m`.
 
 How to use it? 
 ------------
@@ -57,17 +55,17 @@ Customization
 Here you can see a bunch of parameters that you can change:
 
 #### Track Colors
-- UIColor *progressColor: Customize te progress Color.
-- UIColor *trackColor: Customize the track Color.
+- UIColor `progressColor`: Customize te progress Color.
+- UIColor `trackColor`: Customize the track Color.
 
 
 #### Customize angle.
-- CGFloat startAngle: from 0 to 360 degrees.
-- CGFloat endAngle: from 0 to 360 degrees.
+- CGFloat `startAngle`: from 0 to 360 degrees.
+- CGFloat `endAngle`: from 0 to 360 degrees.
 
 #### Needle.
-- BOOL displayNeedle: This will show or not the needle that you can see in the example image.
-- UIColor *needleColor: Color of the needle.
+- BOOL `displayNeedle`: This will show or not the needle that you can see in the example image.
+- UIColor `needleColor`: Color of the needle.
 
 #### Other appearance settings.
 - CGFloat strokeWidth: This is the width of the track.
