@@ -1,3 +1,5 @@
  language: objective-c
- xcode_project: MMCircularProgressView Demo.xcodeproj
- xcode_scheme: MMCircularProgressView DemoTests
+ before_install:
+     - brew update
+     - brew install xctool
+ script: xctool -workspace MMCircularProgressView Demo.xcworkspace -scheme MMCircularProgressView DemoTests
