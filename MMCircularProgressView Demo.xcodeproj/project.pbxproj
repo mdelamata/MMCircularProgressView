@@ -174,9 +174,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3496698E187D7F0700238A6C /* MMCircularProgressView Demo */ = {
+		3496698E187D7F0700238A6C /* MMCircularProgressViewDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 349669BB187D7F0700238A6C /* Build configuration list for PBXNativeTarget "MMCircularProgressView Demo" */;
+			buildConfigurationList = 349669BB187D7F0700238A6C /* Build configuration list for PBXNativeTarget "MMCircularProgressViewDemo" */;
 			buildPhases = (
 				3496698B187D7F0700238A6C /* Sources */,
 				3496698C187D7F0700238A6C /* Frameworks */,
@@ -186,7 +186,7 @@
 			);
 			dependencies = (
 			);
-			name = "MMCircularProgressView Demo";
+			name = MMCircularProgressViewDemo;
 			productName = "MMCircularProgressView Demo";
 			productReference = 3496698F187D7F0700238A6C /* MMCircularProgressView Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -235,7 +235,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3496698E187D7F0700238A6C /* MMCircularProgressView Demo */,
+				3496698E187D7F0700238A6C /* MMCircularProgressViewDemo */,
 				349669A9187D7F0700238A6C /* MMCircularProgressView DemoTests */,
 			);
 		};
@@ -289,7 +289,7 @@
 /* Begin PBXTargetDependency section */
 		349669B0187D7F0700238A6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3496698E187D7F0700238A6C /* MMCircularProgressView Demo */;
+			target = 3496698E187D7F0700238A6C /* MMCircularProgressViewDemo */;
 			targetProxy = 349669AF187D7F0700238A6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -470,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		349669BB187D7F0700238A6C /* Build configuration list for PBXNativeTarget "MMCircularProgressView Demo" */ = {
+		349669BB187D7F0700238A6C /* Build configuration list for PBXNativeTarget "MMCircularProgressViewDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				349669BC187D7F0700238A6C /* Debug */,

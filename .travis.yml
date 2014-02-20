@@ -1,5 +1,5 @@
  language: objective-c
  xcode_project: MMCircularProgressView Demo.xcodeproj
- xcode_scheme: MMCircularProgressView DemoTests
+ xcode_scheme: MMCircularProgressViewDemo
 
 
