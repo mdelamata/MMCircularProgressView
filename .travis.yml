@@ -1,6 +1,6 @@
  language: objective-c
  script: 
-   xctool -project MMCircularProgressView\ Demo.xcworkspace -scheme MMCircularProgressViewDemo build test -sdk iphonesimulator
+   xctool -project MMCircularProgressView\ Demo.xcodeproj -scheme MMCircularProgressViewDemo build test -sdk iphonesimulator
 
 
 
