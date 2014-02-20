@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "MMCircularProgressView.h"
 
 @interface MMCircularProgressView_DemoTests : XCTestCase
 
@@ -26,9 +27,11 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
 
+-(void)testForTravis{
+    
+    MMCircularProgressView *circularProgressView = [[MMCircularProgressView alloc] init];
+    
+    XCTAssertTrue([circularProgressView isKindOfClass:[MMCircularProgressView class]], @"Introspection Test");
+}
 @end
