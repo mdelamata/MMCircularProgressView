@@ -1,5 +1,9 @@
  language: objective-c
  xcode_project: MMCircularProgressView Demo.xcodeproj
  xcode_scheme: MMCircularProgressViewDemo
+ 
+ script:
+ xctool -project MMCircularProgressView\ Demo.xcodeproj -scheme MMCircularProgressViewDemo build test -sdk iphonesimulator
+
 
 
