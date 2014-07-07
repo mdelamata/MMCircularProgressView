@@ -23,6 +23,8 @@
 @property(nonatomic,assign) float progress;
 @property(nonatomic,assign) BOOL displayNeedle;
 
+@property(nonatomic,retain) NSString *kCAMediaTimingFunction;
+
 -(void)startAnimation;
 
 @end

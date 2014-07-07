@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3496698E187D7F0700238A6C"
-               BuildableName = "MMCircularProgressView Demo.app"
+               BuildableName = "MMCircularProgressViewDemo.app"
                BlueprintName = "MMCircularProgressViewDemo"
                ReferencedContainer = "container:MMCircularProgressView Demo.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3496698E187D7F0700238A6C"
-            BuildableName = "MMCircularProgressView Demo.app"
+            BuildableName = "MMCircularProgressViewDemo.app"
             BlueprintName = "MMCircularProgressViewDemo"
             ReferencedContainer = "container:MMCircularProgressView Demo.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3496698E187D7F0700238A6C"
-            BuildableName = "MMCircularProgressView Demo.app"
+            BuildableName = "MMCircularProgressViewDemo.app"
             BlueprintName = "MMCircularProgressViewDemo"
             ReferencedContainer = "container:MMCircularProgressView Demo.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3496698E187D7F0700238A6C"
-            BuildableName = "MMCircularProgressView Demo.app"
+            BuildableName = "MMCircularProgressViewDemo.app"
             BlueprintName = "MMCircularProgressViewDemo"
             ReferencedContainer = "container:MMCircularProgressView Demo.xcodeproj">
          </BuildableReference>

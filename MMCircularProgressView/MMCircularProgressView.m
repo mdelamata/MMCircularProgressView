@@ -75,7 +75,8 @@
     self.startAngle = 170;
     self.endAngle = 45;
     
-
+    self.kCAMediaTimingFunction = kCAMediaTimingFunctionEaseInEaseOut;
+    
     self.progress = 0.7;
 }
 
@@ -213,7 +214,7 @@
         animateStrokeEnd.duration  = self.duration;
         animateStrokeEnd.fromValue = @(0.0f);
         animateStrokeEnd.toValue   = @(1.0f);
-        animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
         [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
         
         
@@ -230,7 +231,7 @@
             rotationAnimation.toValue = [NSNumber numberWithFloat:progressOvalEndAngle];
             rotationAnimation.duration = self.duration;
             rotationAnimation.removedOnCompletion = YES;
-            rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
             
             
             [self.needleImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
