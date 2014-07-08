@@ -77,10 +77,11 @@
     
     self.kCAMediaTimingFunction = kCAMediaTimingFunctionEaseInEaseOut;
     
-    self.progress = 0.7;
+    self.initialProgress = 0.0;
+    self.progress = 1;
 }
 
--(void)setProgress:(float)progress{
+-(void)setProgress:(CGFloat)progress{
     _progress = progress;
     [self repaint];
 }
@@ -212,7 +213,7 @@
         
         CABasicAnimation *animateStrokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
         animateStrokeEnd.duration  = self.duration;
-        animateStrokeEnd.fromValue = @(0.0f);
+        animateStrokeEnd.fromValue = @(self.initialProgress);
         animateStrokeEnd.toValue   = @(1.0f);
         animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
         [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];

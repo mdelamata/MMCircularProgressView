@@ -20,7 +20,8 @@
 @property(nonatomic,assign) CGFloat startAngle;
 @property(nonatomic,assign) CGFloat endAngle;
 
-@property(nonatomic,assign) float progress;
+@property(nonatomic,assign) CGFloat initialProgress;
+@property(nonatomic,assign) CGFloat progress;
 @property(nonatomic,assign) BOOL displayNeedle;
 
 @property(nonatomic,retain) NSString *kCAMediaTimingFunction;
