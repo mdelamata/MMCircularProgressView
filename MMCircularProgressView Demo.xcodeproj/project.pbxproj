@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		3427D5331884453C009D7027 /* needle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "needle@2x.png"; sourceTree = "<group>"; };
 		3427D53F18848919009D7027 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
-		3496698F187D7F0700238A6C /* MMCircularProgressView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "MMCircularProgressView Demo.app"; path = MMCircularProgressViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3496698F187D7F0700238A6C /* MMCircularProgressViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMCircularProgressViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34966992187D7F0700238A6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34966994187D7F0700238A6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		34966996187D7F0700238A6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -99,7 +99,7 @@
 		34966990187D7F0700238A6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3496698F187D7F0700238A6C /* MMCircularProgressView Demo.app */,
+				3496698F187D7F0700238A6C /* MMCircularProgressViewDemo.app */,
 				349669AA187D7F0700238A6C /* MMCircularProgressView DemoTests.xctest */,
 			);
 			name = Products;
@@ -188,7 +188,7 @@
 			);
 			name = MMCircularProgressViewDemo;
 			productName = "MMCircularProgressView Demo";
-			productReference = 3496698F187D7F0700238A6C /* MMCircularProgressView Demo.app */;
+			productReference = 3496698F187D7F0700238A6C /* MMCircularProgressViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		349669A9187D7F0700238A6C /* MMCircularProgressView DemoTests */ = {

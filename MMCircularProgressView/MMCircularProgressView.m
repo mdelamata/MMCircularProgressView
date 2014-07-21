@@ -221,10 +221,10 @@
         
         if (self.displayNeedle) {
             
-            [self.progressLayer removeAllAnimations];
+            [self.needleImageView.layer removeAllAnimations];
 
-            CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle));
-            CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
+            CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-(270-self.startAngle));
+            CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
             
             CABasicAnimation *rotationAnimation;
             rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
