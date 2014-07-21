@@ -205,41 +205,34 @@
 //method to start the animation.
 -(void)startAnimation{
     
-    double delayInSeconds = 0.1;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self.progressLayer removeAllAnimations];
+    
+    CABasicAnimation *animateStrokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animateStrokeEnd.duration  = self.duration;
+    animateStrokeEnd.fromValue = @(self.initialProgress);
+    animateStrokeEnd.toValue   = @(1.0f);
+    animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
+    [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
+    
+    
+    if (self.displayNeedle) {
         
-        [self.progressLayer removeAllAnimations];
+        [self.needleImageView.layer removeAllAnimations];
         
-        CABasicAnimation *animateStrokeEnd = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        animateStrokeEnd.duration  = self.duration;
-        animateStrokeEnd.fromValue = @(self.initialProgress);
-        animateStrokeEnd.toValue   = @(1.0f);
-        animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
-        [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
+        CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-(270-self.startAngle));
+        CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
+        
+        CABasicAnimation *rotationAnimation;
+        rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        rotationAnimation.fromValue = [NSNumber numberWithFloat:progressOvalStartAngle];
+        rotationAnimation.toValue = [NSNumber numberWithFloat:progressOvalEndAngle];
+        rotationAnimation.duration = self.duration;
+        rotationAnimation.removedOnCompletion = YES;
+        rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
         
         
-        if (self.displayNeedle) {
-            
-            [self.needleImageView.layer removeAllAnimations];
-
-            CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-(270-self.startAngle));
-            CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
-            
-            CABasicAnimation *rotationAnimation;
-            rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-            rotationAnimation.fromValue = [NSNumber numberWithFloat:progressOvalStartAngle];
-            rotationAnimation.toValue = [NSNumber numberWithFloat:progressOvalEndAngle];
-            rotationAnimation.duration = self.duration;
-            rotationAnimation.removedOnCompletion = YES;
-            rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
-            
-            
-            [self.needleImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-        }
-
-
-    });
+        [self.needleImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    }
     
 }
 
