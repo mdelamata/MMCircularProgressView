@@ -158,7 +158,7 @@
     
     
     //rotates it to the progress position
-    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-1*(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.startAngle + self.progress*(self.endAngle)-270);
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
 
@@ -177,9 +177,10 @@
 //auxiliar method to create Bezier paths to the desired progress
 -(UIBezierPath*)createBezierPathWithProgress:(CGFloat)progress{
     
+    NSLog(@"%f",progress);
     // Drawing code
     CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(self.startAngle);
-    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(360-self.startAngle+self.endAngle);
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.endAngle);
     CGFloat progressOvalWidth = self.strokeWidth;
     
     //oval drawing
@@ -219,13 +220,13 @@
         
         [self.needleImageView.layer removeAllAnimations];
         
-        CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(-(270-self.startAngle));
-        CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(-(270-self.startAngle)+self.progress*(360-self.startAngle+self.endAngle));
+        CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(self.startAngle-270);
+        CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.startAngle + self.progress*(self.endAngle)-270);
         
         CABasicAnimation *rotationAnimation;
         rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        rotationAnimation.fromValue = [NSNumber numberWithFloat:progressOvalStartAngle];
-        rotationAnimation.toValue = [NSNumber numberWithFloat:progressOvalEndAngle];
+        rotationAnimation.fromValue = @(progressOvalStartAngle);
+        rotationAnimation.toValue = @(progressOvalEndAngle);
         rotationAnimation.duration = self.duration;
         rotationAnimation.removedOnCompletion = YES;
         rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
