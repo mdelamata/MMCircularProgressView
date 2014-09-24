@@ -27,6 +27,9 @@
     [self.startAngleLabel setText:[NSString stringWithFormat:@"%dº",(int)self.startAngleSlide.value]];
     [self.endAngleLabel setText:[NSString stringWithFormat:@"%dº",(int)self.endAngleSlide.value]];
 
+    //updates the circle
+    self.circularProgressView.startAngle = self.startAngleSlide.value;
+    self.circularProgressView.endAngle = self.endAngleSlide.value;
 }
 
 #pragma mark - IBAction methods
