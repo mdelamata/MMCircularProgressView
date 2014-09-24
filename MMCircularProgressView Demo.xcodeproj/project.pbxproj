@@ -218,6 +218,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = mms;
 				TargetAttributes = {
+					3496698E187D7F0700238A6C = {
+						DevelopmentTeam = SK647ARH6S;
+					};
 					349669A9187D7F0700238A6C = {
 						TestTargetID = 3496698E187D7F0700238A6C;
 					};
@@ -390,11 +393,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MMCircularProgressView Demo/MMCircularProgressView Demo-Prefix.pch";
 				INFOPLIST_FILE = "MMCircularProgressView Demo/MMCircularProgressView Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2FCC2E60-0A2F-4A13-8E68-A621E6164031";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -405,11 +409,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MMCircularProgressView Demo/MMCircularProgressView Demo-Prefix.pch";
 				INFOPLIST_FILE = "MMCircularProgressView Demo/MMCircularProgressView Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2FCC2E60-0A2F-4A13-8E68-A621E6164031";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
