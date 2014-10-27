@@ -15,7 +15,7 @@ How to Install it
 #### Podfile
 ```ruby
 platform :ios, '7.0'
-pod "MMCircularProgressView", "~> 1.0"
+pod "MMCircularProgressView", "~> 1.0.1"
 ```
 #### Old school
 Drag into your project the folder `/MMCircularProgressView`. That's all.
@@ -62,6 +62,9 @@ Here you can see a bunch of parameters that you can change:
 #### Customize angle.
 - CGFloat `startAngle`: from 0 to 360 degrees.
 - CGFloat `endAngle`: from 0 to 360 degrees.
+
+#### Progress.
+- CGFloat `initialProgress`: This will help you to determine where it should start the animation.
 
 #### Needle.
 - BOOL `displayNeedle`: This will show or not the needle that you can see in the example image.
