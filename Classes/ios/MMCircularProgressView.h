@@ -3,7 +3,7 @@
 //  ihappy
 //
 //  Created by Manuel de la Mata Sáez on 08/01/14.
-//  Copyright (c) 2014 ihappy. All rights reserved.
+//  Copyright (c) 2014 MMS. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,6 +25,7 @@
 @property(nonatomic,assign) BOOL displayNeedle;
 
 @property(nonatomic,retain) NSString *kCAMediaTimingFunction;
+@property(nonatomic,retain) NSString *lineCap;
 
 -(void)startAnimation;
 

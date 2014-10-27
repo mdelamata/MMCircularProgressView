@@ -3,7 +3,7 @@
 //  ihappy
 //
 //  Created by Manuel de la Mata Sáez on 08/01/14.
-//  Copyright (c) 2014 ihappy. All rights reserved.
+//  Copyright (c) 2014 MMS. All rights reserved.
 //
 
 #import "MMCircularProgressView.h"
@@ -76,7 +76,8 @@
     self.endAngle = 45;
     
     self.kCAMediaTimingFunction = kCAMediaTimingFunctionEaseInEaseOut;
-    
+    self.lineCap = kCALineCapRound;
+
     self.initialProgress = 0.0;
     self.progress = 1;
 }
@@ -112,7 +113,8 @@
     pathLayer.lineJoin = kCALineJoinBevel;
     pathLayer.strokeStart = 0.0;
     pathLayer.strokeEnd = 1;
-    
+    pathLayer.lineCap = self.lineCap;
+
     self.trackLayer = pathLayer;
     [self.layer addSublayer:self.trackLayer];
 }
@@ -120,7 +122,6 @@
 //defines and draws the progress track stroke
 - (void)setProgressTrack
 {
-    
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
     pathLayer.frame = CGRectMake(0,0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     pathLayer.geometryFlipped = NO;
@@ -131,10 +132,10 @@
     pathLayer.lineJoin = kCALineJoinBevel;
     pathLayer.strokeStart = 0.0;
     pathLayer.strokeEnd = 1.0;
-    
+    pathLayer.lineCap = self.lineCap;
+
     self.progressLayer = pathLayer;
     [self.layer addSublayer:self.progressLayer];
-    
 }
 
 //defines and draws the needle stroke

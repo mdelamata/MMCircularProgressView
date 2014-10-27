@@ -3,7 +3,7 @@
 //  ihappy
 //
 //  Created by Manuel de la Mata Sáez on 08/01/14.
-//  Copyright (c) 2014 ihappy. All rights reserved.
+//  Copyright (c) 2014 MMS. All rights reserved.
 //
 
 #import "MMCircularProgressView.h"
@@ -69,13 +69,14 @@
     self.needleColor = [UIColor redColor];
     self.strokeWidth = 5;
     self.displayNeedle = YES; //yes by default
-
+    
     self.duration = 2;
     
     self.startAngle = 170;
     self.endAngle = 45;
     
     self.kCAMediaTimingFunction = kCAMediaTimingFunctionEaseInEaseOut;
+    self.lineCap = kCALineCapRound;
     
     self.initialProgress = 0.0;
     self.progress = 1;
@@ -112,6 +113,7 @@
     pathLayer.lineJoin = kCALineJoinBevel;
     pathLayer.strokeStart = 0.0;
     pathLayer.strokeEnd = 1;
+    pathLayer.lineCap = self.lineCap;
     
     self.trackLayer = pathLayer;
     [self.layer addSublayer:self.trackLayer];
@@ -120,7 +122,6 @@
 //defines and draws the progress track stroke
 - (void)setProgressTrack
 {
-    
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
     pathLayer.frame = CGRectMake(0,0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     pathLayer.geometryFlipped = NO;
@@ -131,10 +132,10 @@
     pathLayer.lineJoin = kCALineJoinBevel;
     pathLayer.strokeStart = 0.0;
     pathLayer.strokeEnd = 1.0;
+    pathLayer.lineCap = self.lineCap;
     
     self.progressLayer = pathLayer;
     [self.layer addSublayer:self.progressLayer];
-    
 }
 
 //defines and draws the needle stroke
@@ -152,7 +153,7 @@
     
     //sets the anchor point in the bottom side
     self.needleImageView.layer.anchorPoint = CGPointMake(0.5,1);
-
+    
     //tints the image with the desired color
     [self.needleImageView setTintColor:self.needleColor];
     
@@ -161,7 +162,7 @@
     CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.startAngle + self.progress*(self.endAngle)-270);
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
-
+    
 }
 
 
