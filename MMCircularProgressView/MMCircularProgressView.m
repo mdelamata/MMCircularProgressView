@@ -177,7 +177,6 @@
 //auxiliar method to create Bezier paths to the desired progress
 -(UIBezierPath*)createBezierPathWithProgress:(CGFloat)progress{
     
-    NSLog(@"%f",progress);
     // Drawing code
     CGFloat progressOvalStartAngle = DEGREES_TO_RADIANS(self.startAngle);
     CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.endAngle);
