@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MMCircularProgressViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lQ-dZ-Axy" customClass="MMCircularProgressView" customModule="MMCircularProgressViewDemo_Swift" customModuleProvider="target">
+                                <rect key="frame" x="192" y="89" width="215" height="202"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4lQ-dZ-Axy" secondAttribute="height" multiplier="215:202" id="pxM-33-QfH"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMCircularProgressView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2E-Y7-Akz">
+                                <rect key="frame" x="20" y="25" width="560" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="4t0-x5-Wgz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLV-24-Aqv">
+                                <rect key="frame" x="136.5" y="297" width="327" height="261"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0s-6X-khL">
+                                        <rect key="frame" x="20" y="26" width="104" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuu-9e-QQW">
+                                        <rect key="frame" x="87" y="221" width="147" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <state key="normal" title="Animate">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="animateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Puf-d6-6m6"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999998807907104" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uZe-pC-f6B">
+                                        <rect key="frame" x="18" y="51" width="232" height="31"/>
+                                        <connections>
+                                            <action selector="progressValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ehc-Th-Vcp"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-pr-Q1u" userLabel="startLabel">
+                                        <rect key="frame" x="256" y="100" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNB-wZ-ewW" userLabel="progressLabel">
+                                        <rect key="frame" x="255.5" y="45" width="71.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StartAngle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC3-of-saS">
+                                        <rect key="frame" x="20" y="82" width="104" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-h5-J1f" userLabel="startAngle Slider">
+                                        <rect key="frame" x="18" y="107" width="232" height="31"/>
+                                        <connections>
+                                            <action selector="startAngleValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tuq-lf-kXP"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CS-ks-Yst" userLabel="endLabel">
+                                        <rect key="frame" x="256" y="155" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EndAngle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-Ez-w1C">
+                                        <rect key="frame" x="20" y="137" width="104" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="246" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="Iz6-IX-lZS" userLabel="endAngle Slider">
+                                        <rect key="frame" x="18" y="162" width="232" height="31"/>
+                                        <connections>
+                                            <action selector="endAngleValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nyZ-g8-f6U"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="VC1-2j-5pL"/>
+                                    <constraint firstAttribute="height" constant="261" id="xN8-th-Dbu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.39607843139999999" green="0.75686274509999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tLV-24-Aqv" firstAttribute="top" secondItem="4lQ-dZ-Axy" secondAttribute="bottom" constant="6" id="1s8-QR-5l6"/>
+                            <constraint firstItem="4lQ-dZ-Axy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMd-vu-di7"/>
+                            <constraint firstItem="Q2E-Y7-Akz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="I8S-mL-81V"/>
+                            <constraint firstItem="4lQ-dZ-Axy" firstAttribute="top" secondItem="Q2E-Y7-Akz" secondAttribute="bottom" constant="21" id="Szb-A0-pFG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Q2E-Y7-Akz" secondAttribute="leading" id="VOi-gg-786"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tLV-24-Aqv" secondAttribute="bottom" constant="42" id="WrE-ma-vJP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q2E-Y7-Akz" secondAttribute="trailing" id="YWo-5W-bVp"/>
+                            <constraint firstItem="tLV-24-Aqv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fig-b9-r3l"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="circularProgressView" destination="4lQ-dZ-Axy" id="gDM-R5-JQl"/>
+                        <outlet property="endAngleLabel" destination="7CS-ks-Yst" id="x4Z-xd-Cy2"/>
+                        <outlet property="endAngleSlide" destination="Iz6-IX-lZS" id="HXB-FZ-qk1"/>
+                        <outlet property="progressLabel" destination="bNB-wZ-ewW" id="bJH-HS-CkK"/>
+                        <outlet property="progressSlider" destination="uZe-pC-f6B" id="jaz-fq-B7y"/>
+                        <outlet property="startAngleLabel" destination="xAa-pr-Q1u" id="pVb-9I-PGh"/>
+                        <outlet property="startAngleSlide" destination="1bF-h5-J1f" id="VsN-4B-aMX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="429"/>
+        </scene>
+    </scenes>
+</document>
