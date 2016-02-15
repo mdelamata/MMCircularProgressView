@@ -54,11 +54,11 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func endAngleValueChanged(sender: AnyObject) {
+    @IBAction func endAngleValueChanged(slider: UISlider) {
         
-        let progress = CGFloat(((sender as? UISlider)?.value)!)
+        let progress = slider.value
         
-        self.circularProgressView.endAngle = progress
+        self.circularProgressView.endAngle = CGFloat(progress)
         self.endAngleLabel.text = "\(progress)º"
     }
 

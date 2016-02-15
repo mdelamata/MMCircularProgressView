@@ -133,7 +133,7 @@ class MMCircularProgressView: UIView {
             
             self.needleImageView = UIImageView(image: img)
             
-            self.needleImageView?.frame = CGRectMake(CGRectGetMidX(trackLayer.frame)-img.size.width/2,
+            self.needleImageView?.frame = CGRectMake( trackLayer.frame.midX - img.size.width/2,
                 CGRectGetMidY(trackLayer.frame)-img.size.height/2,
                 img.size.width,
                 img.size.height)
@@ -179,7 +179,7 @@ class MMCircularProgressView: UIView {
         progressPath.addArcWithCenter(CGPoint(x: 0, y: 0), radius: CGRectGetWidth(ovalRect)/2 - progressOvalWidth, startAngle: CGFloat(progressOvalStartAngle), endAngle: (CGFloat(progressOvalStartAngle) + (progress * CGFloat(progressOvalEndAngle))), clockwise: true)
         
         //this centers the beziers in the rect
-        let ovalTransform = CGAffineTransformMakeTranslation(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect))
+        let ovalTransform = CGAffineTransformMakeTranslation(ovalRect.midX, CGRectGetMidY(ovalRect))
         //    ovalTransform = CGAffineTransformScale(ovalTransform, 1, CGRectGetHeight(ovalRect)/ CGRectGetWidth(ovalRect));
         progressPath.applyTransform(ovalTransform)
         
