@@ -131,7 +131,7 @@
     pathLayer.lineWidth = self.strokeWidth;
     pathLayer.lineJoin = kCALineJoinBevel;
     pathLayer.strokeStart = 0.0;
-    pathLayer.strokeEnd = 1.0;
+    pathLayer.strokeEnd = self.initialProgress;
     pathLayer.lineCap = self.lineCap;
 
     self.progressLayer = pathLayer;
@@ -159,7 +159,7 @@
     
     
     //rotates it to the progress position
-    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.startAngle + self.progress*(self.endAngle)-270);
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(self.startAngle + self.initialProgress*(self.endAngle)-270);
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
 
@@ -213,6 +213,9 @@
     animateStrokeEnd.fromValue = @(self.initialProgress);
     animateStrokeEnd.toValue   = @(1.0f);
     animateStrokeEnd.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
+    animateStrokeEnd.removedOnCompletion = NO;
+    animateStrokeEnd.fillMode = kCAFillModeForwards;
+
     [self.progressLayer addAnimation:animateStrokeEnd forKey:@"strokeEndAnimation"];
     
     
@@ -230,6 +233,8 @@
         rotationAnimation.duration = self.duration;
         rotationAnimation.removedOnCompletion = YES;
         rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:self.kCAMediaTimingFunction];
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeForwards;
         
         
         [self.needleImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
