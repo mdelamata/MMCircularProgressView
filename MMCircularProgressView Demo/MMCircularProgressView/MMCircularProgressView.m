@@ -187,7 +187,8 @@
     CGRect ovalRect = self.bounds;
     UIBezierPath *progressPath = [UIBezierPath bezierPath];
     [progressPath addArcWithCenter:CGPointMake(0, 0)
-                            radius:CGRectGetWidth(ovalRect)/2 - progressOvalWidth
+     // Stroking a bezier path is applied half outside and half inside the radius
+                            radius:CGRectGetWidth(ovalRect)/2 - (progressOvalWidth / 2)
                         startAngle:progressOvalStartAngle
                           endAngle:(progressOvalStartAngle + (progress * progressOvalEndAngle))
                          clockwise:YES];
